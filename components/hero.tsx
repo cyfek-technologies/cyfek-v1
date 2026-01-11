@@ -1,49 +1,55 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, ArrowUpRight } from "lucide-react"
+import { useEffect, useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const services = [
   { name: "Web Dev", color: "bg-teal" },
   { name: "Mobile Apps", color: "bg-teal/70" },
   { name: "Marketing", color: "bg-teal/50" },
   { name: "Branding", color: "bg-teal/80" },
-]
+  { name: "Academy", color: "bg-teal/60" },
+  { name: "Career", color: "bg-teal/60" },
+];
 
 export function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [activeService, setActiveService] = useState(0)
-  const heroRef = useRef<HTMLElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeService, setActiveService] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect()
+        const rect = heroRef.current.getBoundingClientRect();
         setMousePosition({
           x: (e.clientX - rect.left) / rect.width,
           y: (e.clientY - rect.top) / rect.height,
-        })
+        });
       }
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveService((prev) => (prev + 1) % services.length)
-    }, 2500)
-    return () => clearInterval(interval)
-  }, [])
+      setActiveService((prev) => (prev + 1) % services.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen bg-hero-bg overflow-hidden pt-20">
+    <section
+      ref={heroRef}
+      className="relative min-h-screen bg-hero-bg overflow-hidden pt-20"
+    >
       {/* Interactive gradient blob that follows mouse */}
       <div
         className="absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-30 pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          background: "radial-gradient(circle, var(--teal) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, var(--teal) 0%, transparent 70%)",
           left: `${mousePosition.x * 100 - 40}%`,
           top: `${mousePosition.y * 100 - 40}%`,
         }}
@@ -66,7 +72,9 @@ export function Hero() {
             {/* Eyebrow text with animated line */}
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-teal" />
-              <span className="text-teal text-sm uppercase tracking-[0.3em] font-medium">Digital Agency</span>
+              <span className="text-teal text-sm uppercase tracking-[0.3em] font-medium">
+                Digital Agency
+              </span>
             </div>
 
             {/* Main headline - large, bold, creative */}
@@ -99,8 +107,13 @@ export function Hero() {
             <div className="max-w-lg mb-12">
               <p className="text-hero-foreground/60 text-lg lg:text-xl leading-relaxed">
                 We're a creative studio that transforms brands through
-                <span className="text-teal font-medium"> strategic design</span>,
-                <span className="text-hero-foreground font-medium"> innovative tech</span>, and
+                <span className="text-teal font-medium"> strategic design</span>
+                ,
+                <span className="text-hero-foreground font-medium">
+                  {" "}
+                  innovative tech
+                </span>
+                , and
                 <span className="text-teal font-medium"> bold ideas</span>.
               </p>
             </div>
@@ -137,7 +150,9 @@ export function Hero() {
                   <div
                     className="absolute inset-0 bg-gradient-to-tr from-teal/40 via-transparent to-teal/20"
                     style={{
-                      transform: `translate(${mousePosition.x * 20 - 10}px, ${mousePosition.y * 20 - 10}px)`,
+                      transform: `translate(${mousePosition.x * 20 - 10}px, ${
+                        mousePosition.y * 20 - 10
+                      }px)`,
                       transition: "transform 0.5s ease-out",
                     }}
                   />
@@ -148,7 +163,9 @@ export function Hero() {
                   <span
                     className="text-[12rem] lg:text-[16rem] font-black text-teal/10 select-none leading-none"
                     style={{
-                      transform: `translate(${mousePosition.x * 15 - 7.5}px, ${mousePosition.y * 15 - 7.5}px)`,
+                      transform: `translate(${mousePosition.x * 15 - 7.5}px, ${
+                        mousePosition.y * 15 - 7.5
+                      }px)`,
                       transition: "transform 0.3s ease-out",
                     }}
                   >
@@ -176,20 +193,36 @@ export function Hero() {
                   {/* Stats at bottom */}
                   <div className="grid grid-cols-2 gap-6">
                     <div className="space-y-1">
-                      <span className="text-4xl lg:text-5xl font-bold text-teal">150+</span>
-                      <p className="text-hero-foreground/50 text-sm">Projects Delivered</p>
+                      <span className="text-4xl lg:text-5xl font-bold text-teal">
+                        150+
+                      </span>
+                      <p className="text-hero-foreground/50 text-sm">
+                        Projects Delivered
+                      </p>
                     </div>
                     <div className="space-y-1">
-                      <span className="text-4xl lg:text-5xl font-bold text-hero-foreground">98%</span>
-                      <p className="text-hero-foreground/50 text-sm">Client Satisfaction</p>
+                      <span className="text-4xl lg:text-5xl font-bold text-hero-foreground">
+                        98%
+                      </span>
+                      <p className="text-hero-foreground/50 text-sm">
+                        Client Satisfaction
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Corner accent */}
                 <div className="absolute -top-1 -right-1 w-24 h-24">
-                  <svg viewBox="0 0 100 100" className="w-full h-full text-teal">
-                    <path d="M100,0 L100,100 L0,100" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <svg
+                    viewBox="0 0 100 100"
+                    className="w-full h-full text-teal"
+                  >
+                    <path
+                      d="M100,0 L100,100 L0,100"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
                   </svg>
                 </div>
               </div>
@@ -198,19 +231,35 @@ export function Hero() {
               <div
                 className="absolute -left-8 bottom-24 bg-navy border border-teal/30 rounded-2xl p-5 shadow-2xl shadow-teal/10"
                 style={{
-                  transform: `translate(${mousePosition.x * -10}px, ${mousePosition.y * -10}px)`,
+                  transform: `translate(${mousePosition.x * -10}px, ${
+                    mousePosition.y * -10
+                  }px)`,
                   transition: "transform 0.4s ease-out",
                 }}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center">
-                    <svg className="w-5 h-5 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-navy"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-hero-foreground font-semibold text-sm">Award Winning</p>
-                    <p className="text-hero-foreground/50 text-xs">Digital Agency 2024</p>
+                    <p className="text-hero-foreground font-semibold text-sm">
+                      Award Winning
+                    </p>
+                    <p className="text-hero-foreground/50 text-xs">
+                      Digital Agency 2024
+                    </p>
                   </div>
                 </div>
               </div>
@@ -219,7 +268,9 @@ export function Hero() {
               <div
                 className="absolute -right-4 top-16 w-20 h-20 rounded-2xl bg-teal/20 backdrop-blur-sm border border-teal/30 flex items-center justify-center"
                 style={{
-                  transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px)`,
+                  transform: `translate(${mousePosition.x * 15}px, ${
+                    mousePosition.y * 15
+                  }px)`,
                   transition: "transform 0.5s ease-out",
                 }}
               >
@@ -235,21 +286,26 @@ export function Hero() {
         <div className="animate-marquee flex whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex items-center gap-8 mx-8">
-              {["Web Development", "Mobile Apps", "UI/UX Design", "Digital Marketing", "Branding", "E-Commerce"].map(
-                (item) => (
-                  <span
-                    key={item}
-                    className="text-hero-foreground/40 text-sm uppercase tracking-wider flex items-center gap-4"
-                  >
-                    {item}
-                    <span className="w-2 h-2 rounded-full bg-teal/40" />
-                  </span>
-                ),
-              )}
+              {[
+                "Web Development",
+                "Mobile Apps",
+                "UI/UX Design",
+                "Digital Marketing",
+                "Branding",
+                "E-Commerce",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="text-hero-foreground/40 text-sm uppercase tracking-wider flex items-center gap-4"
+                >
+                  {item}
+                  <span className="w-2 h-2 rounded-full bg-teal/40" />
+                </span>
+              ))}
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
