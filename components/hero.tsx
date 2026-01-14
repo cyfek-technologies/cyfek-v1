@@ -68,7 +68,7 @@ export function Hero() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full">
         <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-5rem)] items-center">
           {/* Left side - Main headline with creative typography */}
-          <div className="lg:col-span-7 pt-12 lg:pt-0">
+          <div className="lg:col-span-8 pt-12 lg:pt-0">
             {/* Eyebrow text with animated line */}
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-teal" />
@@ -78,10 +78,10 @@ export function Hero() {
             </div>
 
             {/* Main headline - large, bold, creative */}
-            <h1 className="text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.9] tracking-tight mb-8">
-              <span className="text-hero-foreground block">We build</span>
+            <h1 className="text-[clamp(1rem,6vw,4rem)] font-bold leading-[1.18] tracking-tight mb-8">
+              <span className="text-hero-foreground block">We Are The </span>
               <span className="text-hero-foreground block relative">
-                <span className="relative z-10">digital</span>
+                <span className="relative z-10">Best Solution for </span>
                 {/* Artistic underline accent */}
                 <svg
                   className="absolute -bottom-2 left-0 w-[80%] h-4 text-teal"
@@ -98,23 +98,32 @@ export function Hero() {
                 </svg>
               </span>
               <span className="block mt-2">
-                <span className="text-teal italic font-light">experiences</span>
+                <span className="text-teal italic font-light">
+                  Growing your Business
+                </span>
                 <span className="text-hero-foreground">.</span>
               </span>
             </h1>
 
             {/* Subtext with creative layout */}
-            <div className="max-w-lg mb-12">
+            <div className="max-w-xl mb-12">
               <p className="text-hero-foreground/60 text-lg lg:text-xl leading-relaxed">
-                We're a creative studio that transforms brands through
-                <span className="text-teal font-medium"> strategic design</span>
+                We Help Brands Scale with
+                <span className="text-teal font-medium">
+                  {" "}
+                  Digital Marketing
+                </span>
                 ,
                 <span className="text-hero-foreground font-medium">
                   {" "}
-                  innovative tech
+                  Branding
                 </span>
                 , and
-                <span className="text-teal font-medium"> bold ideas</span>.
+                <span className="text-teal font-medium">
+                  {" "}
+                  & Websites Development
+                </span>
+                .
               </p>
             </div>
 
@@ -141,7 +150,7 @@ export function Hero() {
           </div>
 
           {/* Right side - Creative visual element */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-4 relative">
             <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none">
               {/* Main visual container with creative shape */}
               <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-teal/20 rounded-[3rem] overflow-hidden border border-teal/20">
